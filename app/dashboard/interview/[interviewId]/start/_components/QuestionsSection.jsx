@@ -22,7 +22,7 @@ const QuestionsSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
           {mockInterviewQuestion &&
             mockInterviewQuestion.map((question, index) => (
               <h2
-                className={`p-2 bg-secondary rounded-full text-xs md:text-sm text-center cursor-pointer ${
+                className={`p-2 border rounded-full text-xs md:text-sm text-center cursor-pointer ${
                   activeQuestionIndex === index ? "bg-green-300" : ""
                 }`}
               >
