@@ -2,6 +2,7 @@
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Link from "next/link"; // Import Link component
 import React, { useEffect, useState } from "react";
 
 export const Header = () => {
@@ -20,39 +21,42 @@ export const Header = () => {
         alt="logo"
         width={160}
         height={100}
+        priority
         style={{ width: "auto", height: "auto" }}
       />
 
       {/* Navigation Links for Desktop */}
       <div className="hidden md:flex flex-grow justify-center">
         <ul className="flex gap-6">
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard" && "text-primary font-bold"
-            }`}
-          >
-            Dashboard
+          <li>
+            <Link
+              href="/dashboard"
+              className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
+                path === "/dashboard" && "text-primary font-bold"
+              }`}
+            >
+              Dashboard
+            </Link>
           </li>
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard/questions" && "text-primary font-bold"
-            }`}
-          >
-            Questions
+          <li>
+            <Link
+              href="/dashboard/upgrade"
+              className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
+                path === "/dashboard/upgrade" && "text-primary font-bold"
+              }`}
+            >
+              Upgrade
+            </Link>
           </li>
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard/upgrade" && "text-primary font-bold"
-            }`}
-          >
-            Upgrade
-          </li>
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard/how" && "text-primary font-bold"
-            }`}
-          >
-            How it works?
+          <li>
+            <Link
+              href="/dashboard/how"
+              className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
+                path === "/dashboard/how" && "text-primary font-bold"
+              }`}
+            >
+              How it works?
+            </Link>
           </li>
         </ul>
       </div>
@@ -86,33 +90,35 @@ export const Header = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <ul className="md:hidden absolute top-16 left-0 w-full bg-secondary shadow-lg p-4 flex flex-col gap-4">
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard" && "text-primary font-bold"
-            }`}
-          >
-            Dashboard
+          <li>
+            <Link
+              href="/dashboard"
+              className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
+                path === "/dashboard" && "text-primary font-bold"
+              }`}
+            >
+              Dashboard
+            </Link>
           </li>
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard/questions" && "text-primary font-bold"
-            }`}
-          >
-            Questions
+          <li>
+            <Link
+              href="/dashboard/upgrade"
+              className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
+                path === "/dashboard/upgrade" && "text-primary font-bold"
+              }`}
+            >
+              Upgrade
+            </Link>
           </li>
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard/upgrade" && "text-primary font-bold"
-            }`}
-          >
-            Upgrade
-          </li>
-          <li
-            className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-              path === "/dashboard/how" && "text-primary font-bold"
-            }`}
-          >
-            How it works?
+          <li>
+            <Link
+              href="/dashboard/how"
+              className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
+                path === "/dashboard/how" && "text-primary font-bold"
+              }`}
+            >
+              How it works?
+            </Link>
           </li>
         </ul>
       )}
